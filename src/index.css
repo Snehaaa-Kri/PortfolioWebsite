@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "pricedown";
+  src: url("/fonts/Pricedown_Regular.ttf") format("opentype");
+}
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "pricedown", sans-serif;
+}
+
+/* In tailwind.config.js or global styles */
+.rainbow-text {
+  background: linear-gradient(90deg, rgb(137, 0, 0), rgb(139, 139, 0), rgb(23, 96, 23), rgb(0, 117, 117), rgb(20, 20, 78), rgb(51, 11, 51));
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateText 6s linear infinite;
+}
+
+@keyframes animateText {
+  0% { background-position: 0% }
+  100% { background-position: 300% }
+}
