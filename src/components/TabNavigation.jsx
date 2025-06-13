@@ -2,7 +2,7 @@ const tabs = ["My Skills", "Education", "Experience", "Additional Skills"];
 
 const TabNavigation = ({ activeTab, setActiveTab }) => {
   return (
-    <div className="flex justify-center gap-6 p-2 mx-auto mt-6 w-fit rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-md">
+    <div className="flex justify-center gap-6 p-2 mx-auto mt-2 w-fit rounded-full backdrop-blur-md bg-white/10 border border-white/20 shadow-md">
       {tabs.map((tab, idx) => (
         <button
           key={idx}

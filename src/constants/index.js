@@ -1,0 +1,5 @@
+export const linkedinLink = "https://www.linkedin.com/in/sneha-kumari-674662274"
+export const twitterLink = "https://www.linkedin.com/in/sneha-kumari-674662274"
+export const instagramLink = "https://www.linkedin.com/in/sneha-kumari-674662274"
+export const mailLink = "mailto:sneha001705@gmail.com"
+export const githubLink = ""

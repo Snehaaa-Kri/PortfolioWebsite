@@ -1,10 +1,11 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import img from '../assets/AboutMe.png'
 import TabNavigation from './TabNavigation'
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaUniversity, FaSchool  } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaUniversity, FaSchool } from 'react-icons/fa';
 import { SiMongodb, SiJavascript, SiBootstrap, SiNpm } from 'react-icons/si';
 import CustomCursor from '../components/CustomCursor.jsx'
+
 
 const skills = [
     { label: 'HTML', icon: <FaHtml5 size={40} />, category: 'My Skills' },
@@ -60,17 +61,38 @@ const educationData = [
 function About() {
 
     const [activeTab, setActiveTab] = useState('My Skills');
+     useEffect(() => {
+        // Disable scrolling
+        document.body.style.overflow = 'hidden';
+
+        // Re-enable when unmounted
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
 
     const filteredSkills = skills.filter(skill => skill.category === activeTab);
     return (
         <>
-            <div className="h-auto bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-20">
-                <CustomCursor />
-                <h1 className="text-8xl text-center font-bold rainbow-text">ABOUT ME</h1>
+            <div className="h-screen bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-5">
+                {/* <CustomCursor /> */}
+                <div className="flex justify-around items-center px-10">
+
+                    <h1 className="text-7xl text-center text-gray-50 font-[pricedown]">ABOUT ME</h1>
+                    <div className="flex justify-end items-center mr-8">
+                        <div className="flex justify-center items-center text-4xl hover:scale-105 hover:ease-in-out duration-100 w-fit text-red-600 hover:border cursor-pointer rounded-full">
+                            <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/10 pl-4 py-2 px-3 rounded-l-full backdrop-blur-sm cursor-pointer hover:bg-white/10 '>My Projects</h3>
+                            <i className="ri-arrow-right-line bg-white/10 py-2 px-3 font-bold rounded-r-full backdrop-blur-sm "></i>
+                        </div>
+
+                    </div>
+
+                </div>
+                
 
                 <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-10 max-w-6xl mx-auto backdrop-blur-md bg-white/10 border border-white/20 shadow-md mt-10">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-5 max-w-6xl mx-auto backdrop-blur-md bg-white/10 border border-white/20 shadow-md mt-2">
                     {filteredSkills.map((skill, index) => (
                         (activeTab === 'Education') ? (<>
                             <div className="flex flex-wrap gap-6 justify-center p-6 col-span-4">
@@ -88,7 +110,7 @@ function About() {
                                             <ul className="list-disc pl-5 space-y-1 text-sm">
                                                 {edu.points.map((point, index) => (
                                                     <li className='font-mono' key={index}>{point}</li>
-                                                ))} 
+                                                ))}
                                             </ul>
                                         )}
                                     </div>
@@ -106,8 +128,10 @@ function About() {
 
                     ))}
                 </div>
+
+                
             </div>
-            <h1 className='text-8xl bg-black text-white text-center pl-[30%] py-10'>my bio</h1>
+            {/* <h1 className='text-8xl bg-black text-white text-center pl-[30%] py-10'>my bio</h1>
             <div className="w-full h-screen flex items-center justify-center bg-black">
                 <div className="cntnr flex text-white w-full h-[80%] ">
                     <div className="limg relative w-1/2 h-full ">
@@ -137,8 +161,7 @@ function About() {
                         </button>
                     </div>
                 </div>
-            </div>
-
+            </div> */}
 
         </>
     )

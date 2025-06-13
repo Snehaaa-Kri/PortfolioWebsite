@@ -1,13 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import 'remixicon/fonts/remixicon.css'
 import About from './components/About'
+import { IoMdSunny } from "react-icons/io";
+import { FaRegMoon } from "react-icons/fa";
+
+import { HiMiniSpeakerWave } from "react-icons/hi2";
+import { HiMiniSpeakerXMark } from "react-icons/hi2";
+import SocialLinks from './components/SocialLinks'
+
+
 
 function App() {
+
+
+  // hero section animations
   const [showContent, setShowContent] = useState(false);
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -35,7 +44,7 @@ function App() {
   }, [])
 
   //on mouse move logic
-  useGSAP(()=> {
+  useGSAP(() => {
     //end logic
     if (!showContent) return;
 
@@ -85,7 +94,7 @@ function App() {
     //
 
     const main = document.querySelector(".main");
-  
+
     main?.addEventListener("mousemove", function (e) {
       const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
       gsap.to(".main .text", {
@@ -101,9 +110,59 @@ function App() {
   }, [showContent])
 
 
+  // music control logic 
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggleMusic = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+
+  // about me showing logic
+  const [showAbout, setShowAbout] = useState(false);
+
+  const handleAboutClick = () => {
+    setShowAbout(true);
+  }
+
+  const aboutRef = useRef(null);
+  // Scroll to the About section after it's rendered
+  useEffect(() => {
+    if (showAbout && aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [showAbout]);
+
+  // Automatically reset showAbout to false after About is visible
+  useEffect(() => {
+    if (!aboutRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShowContent(false); // hide the landing
+          setShowAbout(false);   // unmount About only after rendering
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(aboutRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
 
   return (
     <>
+
 
       <div className="svg fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-[#000] flex justify-center items-center">
         {/* handling svg  */}
@@ -144,17 +203,35 @@ function App() {
         <div className="main w-full rotate-[-10deg] scale-[1.7]">
           <div className="landing w-full h-screen bg-black text-white">
             {/* navbar  */}
-            <div className="navbar absolute top-0 left-0 z-[10] w-full py-10 px-10">
+            <div className="navbar absolute top-0 left-0 z-[10] w-full py-10 px-10 ">
               {/* logo  */}
-              <div className="logo flex gap-7">
+              <div className="logo flex gap-7 justify-between items-center">
+
                 <div className="lines flex flex-col gap-[5px]">
                   <div className="line w-15 h-2 bg-white"></div>
                   <div className="line w-8 h-2 bg-white"></div>
                   <div className="line w-5 h-2 bg-white"></div>
                 </div>
-                <h3 className="text-5xl -mt-[8px] leading-none text-white">
-                  Rockstar
-                </h3>
+                {/* <h3 className="text-5xl -mt-[8px] leading-none text-white cursor-pointer">
+                  Sneha
+                </h3> */}
+
+                {/* //nav  */}
+                <div className="text-4xl flex justify-center items-center gap-4">
+                  {/* Audio element (hidden) */}
+                  <audio ref={audioRef} src="../public/gtaTheme.mp3" loop />
+
+                  {/* Speaker Icon Toggle */}
+                  {isPlaying ? (
+                    <HiMiniSpeakerWave onClick={toggleMusic} className="cursor-pointer text-green-500 transition duration-300 transform hover:scale-115 " />
+                  ) : (
+                    <HiMiniSpeakerXMark onClick={toggleMusic} className="cursor-pointer text-red-500 transition duration-300 transform hover:scale-115 " />
+                  )}
+
+                  {/* Theme Toggle Icons — functionality optional */}
+                  <IoMdSunny className="cursor-pointer" />
+                  <FaRegMoon className="hidden cursor-pointer" />
+                </div>
               </div>
             </div>
 
@@ -167,31 +244,67 @@ function App() {
               <img className='bg absolute scale-[1.8] rotate-[-3deg] left-0 top-0 w-full h-full object-cover' src="/bg.png" alt="" />
 
               <div className="bg text text-white flex flex-col gap-3 absolute top-20 left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg] opacity-90">
-                <h1 className="text-[11rem] leading-none -ml-40">grand</h1>
+                {/* mern stack developer  */}
+                <h1 className="text-[8rem] leading-none left-0 translate-x-0 w-[90vw] text-center ">Mern stack developer</h1>
+                <h1 className="text-[11rem] leading-none ml-20 translate-x-1/8 ">sneha</h1>
+                <h1 className="text-[11rem] leading-none -ml-40 translate-x-2/5 ">kumari</h1>
+                {/* <h1 className="text-[11rem] leading-none -ml-40">grand</h1>
                 <h1 className="text-[11rem] leading-none ml-20">theft</h1>
-                <h1 className="text-[11rem] leading-none -ml-40">auto</h1>
+                <h1 className="text-[11rem] leading-none -ml-40">auto</h1> */}
               </div>
               <img className='character absolute left-1/2 -bottom-[170%] translate-x-1/2 scale-[2] rotation-[-20deg] object-cover' src="/girl.png" alt="" />
 
+              {/* //social links components */}
+              <SocialLinks />
             </div>
 
             {/* bottom bar  */}
             <div className="btmbar text-white absolute bottom-0 left-0 w-full py-15 px-10 bg-gradient-to-b">
 
-              <div className="flex gap-4 items-center text-5xl -translate-y-[-33px]">
-                <i className="ri-arrow-down-line"></i>
-                <h3 className='font-[Helvetica_Now_Display] text-3xl'>Scroll Down</h3>
+              <img className='h-[65px] absolute top-1/2 left-1/7 -translate-x-1/2 -translate-y-1/32' src="/ps5.png" alt="" />
+
+              {/* bottom navigations */}
+              <div className="flex justify-center items-center gap-5">
+                {/* My Bio */}
+                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
+                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>My Bio</h3>
+                </div>
+                {/* About me  */}
+                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
+                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>About Me</h3>
+                </div>
+                {/* My projects  */}
+                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
+                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>My Projects</h3>
+                </div>
+                {/* Contact Me  */}
+                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
+                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>Contact Me</h3>
+                </div>
+                
               </div>
 
-              <img className='h-[65px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/32' src="/ps5.png" alt="" />
             </div>
 
             {/* about  */}
-            <About/>       
+            {showAbout && (
+              <div
+                ref={aboutRef}
+                className="min-h-screen w-full bg-black text-white overflow-hidden"
+              >
+                <About />
+              </div>
+            )}
+
 
           </div>
         </div>
       )}
+
     </>
   )
 }
