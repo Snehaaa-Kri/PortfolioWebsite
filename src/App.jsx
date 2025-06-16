@@ -11,9 +11,15 @@ import { HiMiniSpeakerWave } from "react-icons/hi2";
 import { HiMiniSpeakerXMark } from "react-icons/hi2";
 import SocialLinks from './components/SocialLinks'
 
+import Projects from './components/Projects'
+import BottomNavigations from './components/BottomNavigations'
+
+
 
 
 function App() {
+
+  
 
 
   // hero section animations
@@ -160,6 +166,13 @@ function App() {
   }, []);
 
 
+
+  // projects section
+  const [showProjects, setShowProjects] = useState(false);
+
+  const handleProjectClick = () => {
+    setShowProjects(true);
+  }
   return (
     <>
 
@@ -259,35 +272,36 @@ function App() {
             </div>
 
             {/* bottom bar  */}
-            <div className="btmbar text-white absolute bottom-0 left-0 w-full py-15 px-10 bg-gradient-to-b">
+            <div className="btmbar text-white absolute bottom-0 left-0 w-full bg-gradient-to-b z-100">
 
-              <img className='h-[65px] absolute top-1/2 left-1/7 -translate-x-1/2 -translate-y-1/32' src="/ps5.png" alt="" />
+              {/* <img className='h-[65px] absolute top-1/2 left-1/7 -translate-x-1/2 -translate-y-1/32' src="/ps5.png" alt="" /> */}
 
               {/* bottom navigations */}
-              <div className="flex justify-center items-center gap-5">
+              {/* <div className="flex justify-center items-center gap-5"> */}
                 {/* My Bio */}
-                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
                   <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
                   <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>My Bio</h3>
-                </div>
+                </div> */}
                 {/* About me  */}
-                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
                   <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
                   <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>About Me</h3>
-                </div>
+                </div> */}
                 {/* My projects  */}
-                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleProjectClick}>
                   <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
                   <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>My Projects</h3>
-                </div>
+                </div> */}
                 {/* Contact Me  */}
-                <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
+                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
                   <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
                   <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>Contact Me</h3>
-                </div>
+                </div> */}
                 
-              </div>
+              {/* </div> */}
 
+                  <BottomNavigations />
             </div>
 
             {/* about  */}
@@ -299,6 +313,8 @@ function App() {
                 <About />
               </div>
             )}
+
+            {showProjects && <Projects/>}
 
 
           </div>

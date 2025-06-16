@@ -8,10 +8,14 @@
 
 html,
 body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   font-family: "pricedown", sans-serif;
+  overflow-x: hidden;
 }
+
 
 /* In tailwind.config.js or global styles */
 .rainbow-text {
