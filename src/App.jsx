@@ -3,7 +3,6 @@ import './App.css'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import 'remixicon/fonts/remixicon.css'
-import About from './components/About'
 import { IoMdSunny } from "react-icons/io";
 import { FaRegMoon } from "react-icons/fa";
 
@@ -11,7 +10,6 @@ import { HiMiniSpeakerWave } from "react-icons/hi2";
 import { HiMiniSpeakerXMark } from "react-icons/hi2";
 import SocialLinks from './components/SocialLinks'
 
-import Projects from './components/Projects'
 import BottomNavigations from './components/BottomNavigations'
 
 

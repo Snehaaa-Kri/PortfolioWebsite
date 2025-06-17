@@ -1,4 +1,4 @@
-const tabs = ["My Skills", "Education", "Experience", "Additional Skills"];
+const tabs = ["My Skills", "Education", "Experience", "Additional Skills", "Tools"];
 
 const TabNavigation = ({ activeTab, setActiveTab }) => {
   return (

@@ -3,23 +3,38 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import img from '../assets/AboutMe.png'
 import TabNavigation from './TabNavigation'
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaUniversity, FaSchool } from 'react-icons/fa';
-import { SiMongodb, SiJavascript, SiBootstrap, SiNpm } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaUniversity, FaSchool, FaJava, FaGitAlt, } from 'react-icons/fa';
+import { SiJavascript, SiTailwindcss, SiNpm, SiExpress, SiMongodb, SiRedux, SiCplusplus, SiPostman, SiVercel, SiNetlify } from 'react-icons/si';
+import { VscVscode } from "react-icons/vsc";
+import { GiNothingToSay } from "react-icons/gi";
+import { FaLaptopCode } from "react-icons/fa";
+import { FaAward } from "react-icons/fa6";
+import { FaUsersGear } from "react-icons/fa6";
 import CustomCursor from '../components/CustomCursor.jsx'
 
 
 const skills = [
     { label: 'HTML', icon: <FaHtml5 size={40} />, category: 'My Skills' },
+    { label: 'HTML', icon: <FaHtml5 size={40} />, category: 'Education' },
+    { label: 'Nothing to display right now!', icon: <GiNothingToSay size={40} />, category: 'Experience' },
     { label: 'CSS', icon: <FaCss3Alt size={40} />, category: 'My Skills' },
-    { label: 'Bootstrap', icon: <SiBootstrap size={40} />, category: 'My Skills' },
+    { label: 'Tailwind CSS', icon: <SiTailwindcss size={40} />, category: 'My Skills' },
     { label: 'JavaScript', icon: <SiJavascript size={40} />, category: 'My Skills' },
-    { label: 'React JS', icon: <FaReact size={40} />, category: 'My Skills' },
-    { label: 'NPM', icon: <SiNpm size={40} />, category: 'Additional Skills' },
-    { label: 'SQL', icon: <FaDatabase size={40} />, category: 'Experience' },
+    { label: 'React.js', icon: <FaReact size={40} />, category: 'My Skills' },
+    { label: 'Node.js', icon: <FaNodeJs size={40} />, category: 'My Skills' },
+    { label: 'Express.js', icon: <SiExpress size={40} />, category: 'My Skills' },
     { label: 'MongoDB', icon: <SiMongodb size={40} />, category: 'My Skills' },
-    { label: 'MongoDB', icon: <SiMongodb size={40} />, category: 'Education' },
-    // Add items for other tabs
+    { label: 'SQL', icon: <FaDatabase size={40} />, category: 'My Skills' },
+    { label: 'Redux', icon: <SiRedux size={40} />, category: 'Additional Skills' },
+    { label: 'C++', icon: <SiCplusplus size={40} />, category: 'Additional Skills' },
+    { label: 'Java', icon: <FaJava size={40} />, category: 'Additional Skills' },
+    { label: 'Git', icon: <FaGitAlt size={40} />, category: 'Additional Skills' },
+    { label: 'Postman', icon: <SiPostman size={40} />, category: 'Additional Skills' },
+    { label: 'Vercel', icon: <SiVercel size={40} />, category: 'Tools' },
+    { label: 'Netlify', icon: <SiNetlify size={40} />, category: 'Tools' },
+    { label: 'VS Code', icon: <VscVscode size={40} />, category: 'Tools' }
 ];
+
 
 const educationData = [
     {
@@ -27,36 +42,63 @@ const educationData = [
         year: "2023–2027",
         title: "B.Tech",
         course: "Computer Science & Engineering (CSE)",
-        // gpa: "8.38 / 10",
         institute: "IIIT Una",
         points: [
-            "Graduated in Instrumentation and control engineering.",
-            "Studied DS and other coding languages thoroughly.",
-            "Led events and participated in technical societies, showing leadership and teamwork."
+            "Studied core subjects like DSA, DBMS, OS, OOP, and CN.",
+            "Active contributor to DevTeams(college's official website) at IIIT Una.",
+            "Projects: Grevion, Portfolio, AirConnect, and Petify."
         ]
     },
     {
         icon: <FaSchool size={40} />,
-        year: "2018",
+        year: "2021–2022",
         title: "Class – 12",
         percentage: "92.4%",
         institute: "Annie Besant International School, Patna",
         points: [
-            "Had exemplary academic track record with multiple excellence awards.",
-            "Represented school on national platforms."
+            "Excelled in senior secondary academics with 92.4%.",
+            "Consistently achieved academic distinction across subjects."
         ]
     },
     {
         icon: <FaSchool size={40} />,
-        year: "2016",
+        year: "2019–2020",
         title: "Class – 10",
         percentage: "92.0%",
         institute: "Army Public School, Danapur Cantt",
         points: [
-            "Class Monitor for consecutive 2 years"
+            "Achieved 92% in CBSE Class 10 board exams.",
+            "Held leadership roles and contributed to school events."
         ]
     }
 ];
+
+const experienceData = [
+    {
+        title: "Frontend Developer – DevTeams, IIIT Una",
+        duration: "Jan 2024 – Present",
+        location: "Remote",
+        icon: <FaLaptopCode size={40} />,
+        points: [
+            "Contributed to the official IIIT Una website by building and maintaining responsive front-end components.",
+            "Collaborated with the core development team to improve UI/UX and optimize performance.",
+            "Worked with React.js, Tailwind CSS, and Git for version control."
+        ]
+    },
+    {
+        title: "Hackathon Finalist – Progothon Meraki 2025",
+        duration: "Mar 2025",
+        location: "IIIT Una",
+        icon: <FaAward size={40} />,
+        points: [
+            "Secured 3rd place for building Grevion, a biomass trading platform under the AgriTech theme.",
+            "Led the project and Contributed to backend apis creation and integration using MERN stack.",
+            "Built a secure interface for transactions between SPOCs and power plants."
+        ]
+    }
+];
+
+
 
 
 
@@ -73,7 +115,7 @@ function AboutComponent({ onBack }) {
     }, []);
 
     const filteredSkills = skills.filter(skill => skill.category === activeTab);
-    
+
     return (
         <>
             <div className="h-screen bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-5 relative">
@@ -98,41 +140,58 @@ function AboutComponent({ onBack }) {
                 <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-5 max-w-6xl mx-auto backdrop-blur-md bg-white/10 border border-white/20 shadow-md mt-2">
-                    {filteredSkills.map((skill, index) => (
-                        (activeTab === 'Education') ? (<>
-                            <div className="flex flex-wrap gap-6 justify-center p-6 col-span-4">
-                                {educationData.map((edu, index) => (
-                                    <div className="backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white w-full md:w-[30%] space-y-4 col-span-2 ">
-                                        <div className="text-5xl ">{edu.icon}</div>
-                                        <p className="text-white text-4xl font-light">{edu.year} ({edu.title})</p>
-                                        {/* <p className="uppercase text-2xl text-white font-light">{edu.title}</p> */}
-                                        {edu.course && <h3 className="text-xl font-mono">{edu.course}</h3>}
-                                        {edu.percentage && <p className="text-xl font-mono">Percentage – {edu.percentage}</p>}
-                                        {edu.cgpa && <p className="text-xl font-mono">CGPA – {edu.cgpa}</p>}
-                                        {edu.gpa && <p className="text-xl font-mono">GPA – {edu.gpa}</p>}
-                                        <p className="text-yellow-300 font-mono">{edu.institute}</p>
-                                        {edu.points.length > 0 && (
-                                            <ul className="list-disc pl-5 space-y-1 text-sm">
-                                                {edu.points.map((point, index) => (
-                                                    <li className='font-mono' key={index}>{point}</li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </>) : <>
+
+                    {activeTab === 'Education' ? (
+                        educationData.map((edu, index) => (
                             <div
                                 key={index}
-                                className="backdrop-blur-lg border-b-2  bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
+                                className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
+                            >
+                                <div className="text-5xl">{edu.icon}</div>
+                                <p className="text-white text-3xl font-light">{edu.year} ({edu.title})</p>
+                                {edu.course && <h3 className="text-xl font-mono">{edu.course}</h3>}
+                                {edu.percentage && <p className="text-xl font-mono">Percentage – {edu.percentage}</p>}
+                                {edu.gpa && <p className="text-xl font-mono">GPA – {edu.gpa}</p>}
+                                <p className="text-yellow-300 font-mono">{edu.institute}</p>
+                                {edu.points?.length > 0 && (
+                                    <ul className="list-disc pl-5 space-y-1 text-sm">
+                                        {edu.points.map((point, idx) => (
+                                            <li key={idx} className="font-mono">{point}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        ))
+                    ) : activeTab === 'Experience' ? (
+                        experienceData.map((exp, index) => (
+                            <div
+                                key={index}
+                                className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
+                            >
+                                <div className="text-5xl">{exp.icon}</div>
+                                <h3 className="text-white text-2xl">{exp.title}</h3>
+                                <p className="text-yellow-300 text-sm font-mono">{exp.duration} – {exp.location}</p>
+                                <ul className="list-disc pl-5 space-y-1 text-sm">
+                                    {exp.points.map((point, idx) => (
+                                        <li key={idx} className="font-mono">{point}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    ) : (
+                        filteredSkills.map((skill, index) => (
+                            <div
+                                key={index}
+                                className="backdrop-blur-lg border-b-2 bg-white/10 bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
                             >
                                 {skill.icon}
                                 <p className="mt-2 text-xl font-mono font-semibold">{skill.label}</p>
                             </div>
-                        </>
+                        ))
+                    )}
 
-                    ))}
                 </div>
+
 
 
             </div>

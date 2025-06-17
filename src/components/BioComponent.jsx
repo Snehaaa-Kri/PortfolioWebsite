@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import bg from '../../public/bg1.png'; // adjust path as needed
+import bg from '../../public/bg1.png';
 
 function BioComponent({ onBack }) {
   return (
@@ -15,7 +15,7 @@ function BioComponent({ onBack }) {
         initial={{ scale: 0.9, opacity: 0, y: 50 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="backdrop-blur-md bg-black/60 p-10 rounded-3xl shadow-2xl w-[90%] md:w-[70%] max-w-5xl"
+        className="backdrop-blur-md bg-black/60 p-10 rounded-3xl shadow-2xl w-[90%] md:w-[70%] max-w-5xl mt-4"
       >
         <h1 className="text-6xl md:text-7xl text-center text-yellow-400 font-[pricedown] mb-6 tracking-wide">
           STILL RUNNING, NOT HUNTING
@@ -31,11 +31,11 @@ function BioComponent({ onBack }) {
         </motion.button>
 
         <p className="text-xl md:text-2xl font-[Helvetica_Now_Display] tracking-wide text-gray-200 leading-relaxed text-center">
-          Just like a side quest in an open-world game, my journey into tech has been full of detours, discoveries, and deadlines.
-          <br /><br />
           I’m <span className="text-yellow-300 font-bold">Sneha Kumari</span> — a curious coder, creative thinker, and someone who'd rather debug all night than give up on a solution.
           <br /><br />
-          From hackathons to real-world deployments, I build things that solve real problems.
+         Currently pursuing a B.Tech in CSE at IIIT Una, I specialize in building <span className="text-yellow-300 font-bold">full-stack web applications</span> with clean UIs and solid backend systems. My stack includes <span className="text-yellow-300 font-bold">React.js, Node.js, Express.js, MongoDB, and Tailwind CSS</span>, backed by strong fundamentals in Data Structures, OOPs, DBMS, and OS.
+          <br /><br />
+          I’ve built full-stack projects like Petify, AirConnect, and the award-winning Grevion. I'm skilled in RESTful APIs, state management, and modern design with Tailwind CSS.
         </p>
 
         <a href="../../public/sneha.pdf" target='_blank'>
