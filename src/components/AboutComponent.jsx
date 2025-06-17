@@ -73,6 +73,7 @@ function AboutComponent({ onBack }) {
     }, []);
 
     const filteredSkills = skills.filter(skill => skill.category === activeTab);
+    
     return (
         <>
             <div className="h-screen bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-5 relative">

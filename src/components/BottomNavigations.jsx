@@ -47,7 +47,7 @@ function BottomNavigations() {
         </div>
       )}
 
-      <div className="mt-10 z-40">{renderComponent()}</div>
+      <div className="mt-10 z-[100]">{renderComponent()}</div>
     </>
   );
 }

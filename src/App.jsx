@@ -134,10 +134,6 @@ function App() {
   // about me showing logic
   const [showAbout, setShowAbout] = useState(false);
 
-  const handleAboutClick = () => {
-    setShowAbout(true);
-  }
-
   const aboutRef = useRef(null);
   // Scroll to the About section after it's rendered
   useEffect(() => {
@@ -166,13 +162,6 @@ function App() {
   }, []);
 
 
-
-  // projects section
-  const [showProjects, setShowProjects] = useState(false);
-
-  const handleProjectClick = () => {
-    setShowProjects(true);
-  }
   return (
     <>
 
@@ -277,46 +266,8 @@ function App() {
               {/* <img className='h-[65px] absolute top-1/2 left-1/7 -translate-x-1/2 -translate-y-1/32' src="/ps5.png" alt="" /> */}
 
               {/* bottom navigations */}
-              {/* <div className="flex justify-center items-center gap-5"> */}
-                {/* My Bio */}
-                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
-                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
-                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>My Bio</h3>
-                </div> */}
-                {/* About me  */}
-                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
-                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
-                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>About Me</h3>
-                </div> */}
-                {/* My projects  */}
-                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleProjectClick}>
-                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
-                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>My Projects</h3>
-                </div> */}
-                {/* Contact Me  */}
-                {/* <div className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 hover:ease-in-out duration-100" onClick={handleAboutClick}>
-                  <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
-                  <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm cursor-pointer hover:bg-white/10'>Contact Me</h3>
-                </div> */}
-                
-              {/* </div> */}
-
                   <BottomNavigations />
             </div>
-
-            {/* about  */}
-            {showAbout && (
-              <div
-                ref={aboutRef}
-                className="min-h-screen w-full bg-black text-white overflow-hidden"
-              >
-                <About />
-              </div>
-            )}
-
-            {showProjects && <Projects/>}
-
-
           </div>
         </div>
       )}
