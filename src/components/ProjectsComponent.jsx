@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import bg from '../../public/bg1.png'
 
 const projects = [
@@ -19,17 +20,19 @@ const projects = [
   // Add more projects here
 ];
 
-function ProjectsComponent() {
+function ProjectsComponent({ onBack }) {
   return (
     <div className="h-screen bg-cover bg-center text-white py-5 overflow-y-scroll" style={{ backgroundImage: `url(${bg})` }}>
       <div className="flex justify-around items-center px-10">
         <h1 className="text-7xl text-center text-gray-50 font-[pricedown]">MY Projects</h1>
-        <div className="flex justify-end items-center mr-8">
-          <div className="flex justify-center items-center text-4xl hover:scale-105 duration-100 w-fit text-red-600 hover:border cursor-pointer rounded-full">
-            <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/10 pl-4 py-2 px-3 rounded-l-full backdrop-blur-sm hover:bg-white/10 '>Contact Me</h3>
-            <i className="ri-arrow-right-line bg-white/10 py-2 px-3 font-bold rounded-r-full backdrop-blur-sm "></i>
-          </div>
-        </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onBack}
+          className="absolute mt-12 top-[1rem] left-[3rem]  text-red-200 py-2 px-4 rounded-lg  cursor-pointer  text-md font-semibold  transition-all font-[Helvetica_Now_Display] backdrop-blur-sm hover:bg-red-900 border border-red-300 shadow-2xl"
+        >
+          <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-red-900"></i> Go Back
+        </motion.button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-10 max-w-7xl mx-auto mt-10">

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import bg from '../../public/bg1.png'; // adjust path as needed
 
-function BioComponent() {
+function BioComponent({ onBack }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,9 +17,19 @@ function BioComponent() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         className="backdrop-blur-md bg-black/60 p-10 rounded-3xl shadow-2xl w-[90%] md:w-[70%] max-w-5xl"
       >
-        <h1 className="text-6xl md:text-7xl text-center text-yellow-400 font-[pricedown] mb-6">
+        <h1 className="text-6xl md:text-7xl text-center text-yellow-400 font-[pricedown] mb-6 tracking-wide">
           STILL RUNNING, NOT HUNTING
         </h1>
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onBack}
+          className="absolute -top-[1.1rem] left-[50%] -translate-x-1/2 text-black py-2 px-4 rounded-lg bg-yellow-500 hover:bg-yellow-400 cursor-pointer mx-auto block  text-md font-semibold shadow-md  transition-all font-[Helvetica_Now_Display]"
+        >
+          <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-gray-500"></i> Go Back
+        </motion.button>
+
         <p className="text-xl md:text-2xl font-[Helvetica_Now_Display] tracking-wide text-gray-200 leading-relaxed text-center">
           Just like a side quest in an open-world game, my journey into tech has been full of detours, discoveries, and deadlines.
           <br /><br />
@@ -28,13 +38,15 @@ function BioComponent() {
           From hackathons to real-world deployments, I build things that solve real problems.
         </p>
 
-        <motion.button
+        <a href="">
+          <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-10 mx-auto block bg-yellow-500 text-black px-8 py-4 text-xl font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition-all"
+          className="mt-10 mx-auto block bg-yellow-500 text-black px-8 py-4 text-xl font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition-all tracking-widest"
         >
           Download Resume
         </motion.button>
+        </a>
       </motion.div>
     </motion.div>
   );

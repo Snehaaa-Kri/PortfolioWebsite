@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import img from '../assets/AboutMe.png'
 import TabNavigation from './TabNavigation'
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaDatabase, FaUniversity, FaSchool } from 'react-icons/fa';
@@ -59,9 +60,9 @@ const educationData = [
 
 
 
-function AboutComponent() {
-  const [activeTab, setActiveTab] = useState('My Skills');
-     useEffect(() => {
+function AboutComponent({ onBack }) {
+    const [activeTab, setActiveTab] = useState('My Skills');
+    useEffect(() => {
         // Disable scrolling
         document.body.style.overflow = 'hidden';
 
@@ -74,21 +75,24 @@ function AboutComponent() {
     const filteredSkills = skills.filter(skill => skill.category === activeTab);
     return (
         <>
-            <div className="h-screen bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-5">
+            <div className="h-screen bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-5 relative">
                 {/* <CustomCursor /> */}
-                <div className="flex justify-around items-center px-10">
+
+
+                <div className="flex justify-around items-center px-10 cursor-pointer">
 
                     <h1 className="text-7xl text-center text-gray-50 font-[pricedown]">ABOUT ME</h1>
-                    <div className="flex justify-end items-center mr-8">
-                        <div className="flex justify-center items-center text-4xl hover:scale-105 hover:ease-in-out duration-100 w-fit text-red-600 hover:border cursor-pointer rounded-full">
-                            <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/10 pl-4 py-2 px-3 rounded-l-full backdrop-blur-sm cursor-pointer hover:bg-white/10 '>My Projects</h3>
-                            <i className="ri-arrow-right-line bg-white/10 py-2 px-3 font-bold rounded-r-full backdrop-blur-sm "></i>
-                        </div>
-
-                    </div>
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={onBack}
+                        className="absolute mt-6 top-[1rem] left-[3rem]  text-red-200 py-2 px-4 rounded-lg  cursor-pointer  text-md font-semibold  transition-all font-[Helvetica_Now_Display] backdrop-blur-sm hover:bg-red-900 border border-red-300 shadow-2xl"
+                    >
+                        <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-red-900"></i> Go Back
+                    </motion.button>
 
                 </div>
-                
+
 
                 <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
@@ -129,7 +133,7 @@ function AboutComponent() {
                     ))}
                 </div>
 
-                
+
             </div>
             {/* <h1 className='text-8xl bg-black text-white text-center pl-[30%] py-10'>my bio</h1>
             <div className="w-full h-screen flex items-center justify-center bg-black">
