@@ -12,6 +12,8 @@ import SocialLinks from './components/SocialLinks'
 
 import BottomNavigations from './components/BottomNavigations'
 
+import gtaAudio from '../public/gtaTheme.mp3'
+
 
 
 
@@ -219,7 +221,7 @@ function App() {
                 {/* //nav  */}
                 <div className="text-4xl flex justify-center items-center gap-4">
                   {/* Audio element (hidden) */}
-                  <audio ref={audioRef} src="../public/gtaTheme.mp3" loop />
+                  <audio ref={audioRef} src={gtaAudio} loop />
 
                   {/* Speaker Icon Toggle */}
                   {isPlaying ? (
