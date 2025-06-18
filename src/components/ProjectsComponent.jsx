@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import bg from '../../public/bg1.png';
+import portfolioImg from '../../public/portfolio.jpg'
 
 const projects = [
   {
@@ -22,7 +23,7 @@ const projects = [
       { name: "npm", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
       { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" }
     ],
-    image: "../../public/portfolio.jpg",
+    image: portfolioImg,
     liveLink: "https://portfolio-chi-six-ftiawtfif6.vercel.app/",
     codeLink: "https://github.com/Snehaaa-Kri/PortfolioWebsite.git",
     status: "Completed",
@@ -47,7 +48,7 @@ const projects = [
     image: "https://via.placeholder.com/600x300?text=E-Commerce+Dashboard",
     liveLink: "#",
     codeLink: "#",
-    status: "In Progress"
+    status: "Dummy"
   },
   {
     title: "E-COMMERCE DASHBOARD",
@@ -69,7 +70,7 @@ const projects = [
     image: "https://via.placeholder.com/600x300?text=E-Commerce+Dashboard",
     liveLink: "#",
     codeLink: "#",
-    status: "In Progress"
+    status: "Dummy"
   }
 ];
 
@@ -106,7 +107,7 @@ function ProjectsComponent({ onBack }) {
             </div>
 
             <div className="mb-6">
-              <h4 className="text-yellow-200 font-normal tracking-widest text-md underline mb-2 text-xl">Technology Used</h4>
+              <h4 className="text-yellow-200 font-normal tracking-widest text-md underline mb-2 text-xl">Tech Stack</h4>
               <div className="flex flex-wrap gap-2">
                 {project.techStack.map((tech, idx) => (
                   <div key={idx} className="flex flex-col items-center text-xs">
@@ -120,7 +121,7 @@ function ProjectsComponent({ onBack }) {
             <div className="flex gap-4">
               <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
                 <button className="bg-yellow-400 text-black px-6 py-2 rounded-md font-normal tracking-wider hover:bg-yellow-300 transition-all ">
-                  Live Preview →
+                  Live Link →
                 </button>
               </a>
               <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
