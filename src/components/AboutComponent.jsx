@@ -14,32 +14,42 @@ import CustomCursor from '../components/CustomCursor.jsx'
 
 
 const skills = [
-    { label: 'HTML', icon: <FaHtml5 size={40} />, category: 'My Skills' },
-    { label: 'HTML', icon: <FaHtml5 size={40} />, category: 'Education' },
-    { label: 'Nothing to display right now!', icon: <GiNothingToSay size={40} />, category: 'Experience' },
-    { label: 'CSS', icon: <FaCss3Alt size={40} />, category: 'My Skills' },
-    { label: 'Tailwind CSS', icon: <SiTailwindcss size={40} />, category: 'My Skills' },
-    { label: 'JavaScript', icon: <SiJavascript size={40} />, category: 'My Skills' },
-    { label: 'React.js', icon: <FaReact size={40} />, category: 'My Skills' },
-    { label: 'Node.js', icon: <FaNodeJs size={40} />, category: 'My Skills' },
-    { label: 'Express.js', icon: <SiExpress size={40} />, category: 'My Skills' },
-    { label: 'MongoDB', icon: <SiMongodb size={40} />, category: 'My Skills' },
-    { label: 'SQL', icon: <FaDatabase size={40} />, category: 'My Skills' },
-    { label: 'Redux', icon: <SiRedux size={40} />, category: 'Additional Skills' },
-    { label: 'C++', icon: <SiCplusplus size={40} />, category: 'Additional Skills' },
-    { label: 'Java', icon: <FaJava size={40} />, category: 'Additional Skills' },
-    { label: 'Git', icon: <FaGitAlt size={40} />, category: 'Additional Skills' },
-    { label: 'Postman', icon: <SiPostman size={40} />, category: 'Additional Skills' },
-    { label: 'Vercel', icon: <SiVercel size={40} />, category: 'Tools' },
-    { label: 'Netlify', icon: <SiNetlify size={40} />, category: 'Tools' },
-    { label: 'VS Code', icon: <VscVscode size={40} />, category: 'Tools' }
+  // My Skills
+  { label: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'My Skills' },
+  { label: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', category: 'My Skills' },
+  { label: 'Tailwind CSS', icon: 'https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg', category: 'My Skills' },
+  { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', category: 'My Skills' },
+  { label: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', category: 'My Skills' },
+  { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', category: 'My Skills' },
+  { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', category: 'My Skills' },
+  { label: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', category: 'My Skills' },
+  { label: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', category: 'My Skills' },
+
+  // Education
+  { label: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'Education' },
+
+  // Experience
+  { label: 'Nothing to display right now!', icon: 'https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f910.png', category: 'Experience' },
+
+  // Additional Skills
+  { label: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg', category: 'Additional Skills' },
+  { label: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg', category: 'Additional Skills' },
+  { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg', category: 'Additional Skills' },
+  { label: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', category: 'Additional Skills' },
+  { label: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg', category: 'Additional Skills' },
+
+  // Tools
+  { label: 'Vercel', icon: 'https://cdn.simpleicons.org/vercel/000000', category: 'Tools' },
+  { label: 'Netlify', icon: 'https://cdn.simpleicons.org/netlify/00C7B7', category: 'Tools' },
+  { label: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', category: 'Tools' },
 ];
+
 
 
 const educationData = [
     {
         icon: <FaUniversity size={40} />,
-        year: "2023–2027",
+        year: "2023–PRESENT",
         title: "B.Tech",
         course: "Computer Science & Engineering (CSE)",
         institute: "IIIT Una",
@@ -87,7 +97,7 @@ const experienceData = [
     },
     {
         title: "Hackathon Finalist – Progothon Meraki 2025",
-        duration: "Mar 2025",
+        duration: "Apr 2025",
         location: "IIIT Una",
         icon: <FaAward size={40} />,
         points: [
@@ -129,9 +139,9 @@ function AboutComponent({ onBack }) {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={onBack}
-                        className="absolute mt-6 top-[1rem] left-[3rem]  text-red-200 py-2 px-4 rounded-lg  cursor-pointer  text-md font-semibold  transition-all font-[Helvetica_Now_Display] backdrop-blur-sm hover:bg-red-900 border border-red-300 shadow-2xl"
+                        className="bg-yellow-500 hover:bg-yellow-400  text-black absolute mt-6 top-[1rem] left-[3rem]  py-2 px-4 rounded-lg  cursor-pointer  text-md font-semibold  transition-all font-[Helvetica_Now_Display] backdrop-blur-sm border border-red-300 shadow-2xl"
                     >
-                        <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-red-900"></i> Go Back
+                        <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-yellow-500"></i> Go Back
                     </motion.button>
 
                 </div>
@@ -139,7 +149,7 @@ function AboutComponent({ onBack }) {
 
                 <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-5 max-w-6xl mx-auto backdrop-blur-md bg-white/10 border border-white/20 shadow-md mt-2">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-5 max-w-6xl mx-auto backdrop-blur-md bg-white/10 border border-white/20 shadow-md mt-2 rounded-xl">
 
                     {activeTab === 'Education' ? (
                         educationData.map((edu, index) => (
@@ -168,7 +178,7 @@ function AboutComponent({ onBack }) {
                                 key={index}
                                 className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
                             >
-                                <div className="text-5xl">{exp.icon}</div>
+                                <div className="text-5xl ">{exp.icon}</div>
                                 <h3 className="text-white text-2xl">{exp.title}</h3>
                                 <p className="text-yellow-300 text-sm font-mono">{exp.duration} – {exp.location}</p>
                                 <ul className="list-disc pl-5 space-y-1 text-sm">
@@ -181,12 +191,18 @@ function AboutComponent({ onBack }) {
                     ) : (
                         filteredSkills.map((skill, index) => (
                             <div
-                                key={index}
-                                className="backdrop-blur-lg border-b-2 bg-white/10 bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
-                            >
-                                {skill.icon}
-                                <p className="mt-2 text-xl font-mono font-semibold">{skill.label}</p>
-                            </div>
+  key={index}
+  className="backdrop-blur-lg border-b-2 bg-white/10 bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
+>
+  <img
+    src={skill.icon}
+    alt={skill.label}
+    className="w-12 h-12 object-contain"
+    loading="lazy"
+  />
+  <p className="mt-2 text-xl font-mono font-semibold text-center">{skill.label}</p>
+</div>
+
                         ))
                     )}
 

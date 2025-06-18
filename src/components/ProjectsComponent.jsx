@@ -43,7 +43,6 @@ const projects = [
       { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
       { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
       { name: "Tailwind CSS", icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" },
-      { name: "Chart.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chartjs/chartjs-original.svg" }
     ],
     image: "https://via.placeholder.com/600x300?text=E-Commerce+Dashboard",
     liveLink: "#",
@@ -65,8 +64,7 @@ const projects = [
       { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
       { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-      { name: "Tailwind CSS", icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" },
-      { name: "Chart.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chartjs/chartjs-original.svg" }
+      { name: "Tailwind CSS", icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" }
     ],
     image: "https://via.placeholder.com/600x300?text=E-Commerce+Dashboard",
     liveLink: "#",
@@ -84,9 +82,9 @@ function ProjectsComponent({ onBack }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onBack}
-          className="absolute top-[1rem] left-[3rem] mt-12 text-red-200 py-2 px-4 rounded-lg cursor-pointer text-md font-semibold transition-all font-[Helvetica_Now_Display] backdrop-blur-sm hover:bg-red-900 border border-red-300 shadow-2xl"
+          className="bg-yellow-500 hover:bg-yellow-400  text-black absolute top-[1rem] left-[3rem] mt-12 py-2 px-4 rounded-lg cursor-pointer text-md font-semibold transition-all font-[Helvetica_Now_Display] backdrop-blur-sm  shadow-2xl"
         >
-          <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-red-900"></i> Go Back
+          <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-yellow-500"></i> Go Back
         </motion.button>
       </div>
 
