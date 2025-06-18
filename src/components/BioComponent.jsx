@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import bg from '../../public/bg1.png';
+import resume from '../../public/sneha.pdf'
 
 function BioComponent({ onBack }) {
   return (
@@ -38,7 +39,7 @@ function BioComponent({ onBack }) {
           I’ve built full-stack projects like Petify, AirConnect, and the award-winning Grevion. I'm skilled in RESTful APIs, state management, and modern design with Tailwind CSS.
         </p>
 
-        <a href="../../public/sneha.pdf" target='_blank'>
+        <a href={resume} target='_blank'>
           <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
