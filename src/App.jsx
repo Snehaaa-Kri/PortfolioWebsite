@@ -209,7 +209,9 @@ function App() {
               {/* logo  */}
               <div className="logo flex gap-7 justify-between items-center">
 
-                <div className="lines flex flex-col gap-[5px]">
+                <div className="lines flex flex-col gap-[5px]"
+                  onClick={() => (window.location.href = '/')}
+                >
                   <div className="line w-15 h-2 bg-white"></div>
                   <div className="line w-8 h-2 bg-white"></div>
                   <div className="line w-5 h-2 bg-white"></div>
@@ -231,8 +233,8 @@ function App() {
                   )}
 
                   {/* Theme Toggle Icons — functionality optional */}
-                  <IoMdSunny className="cursor-pointer" />
-                  <FaRegMoon className="hidden cursor-pointer" />
+                  {/* <IoMdSunny className="cursor-pointer" />
+                  <FaRegMoon className="hidden cursor-pointer" /> */}
                 </div>
               </div>
             </div>
