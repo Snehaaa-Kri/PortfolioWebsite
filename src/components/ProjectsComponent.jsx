@@ -2,15 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import bg from '../../public/bg1.png';
 import portfolioImg from '../../public/portfolio.jpg'
+import grevionImg from '../../public/grevion.jpg'
+import airconnectImg from '../../public/airconnect.jpg'
 
 const projects = [
   {
-    title: "PORTFOLIO WEBSITE",
+    title: " GTA-Themed Portfolio Website",
     subtitle: "React Based Portfolio Website",
     features: [
-      "Fully responsive front end, back end web page setup along with integrated database setup.",
-      "Created all the components from scratch using React and JavaScript.",
-      "Hand coded custom animation using CSS and JQuery and making the website interactive.",
+      "Built a GTA-inspired portfolio to creatively showcase personal projects, skills, and professional journey.",
+      "Developed all components from scratch using React.js and JavaScript, ensuring modular and reusable structure.",
+      "Implemented custom animations using CSS and jQuery to enhance interactivity and theme alignment.",
       "Worked on how to deploy a live website."
     ],
     techStack: [
@@ -29,13 +31,13 @@ const projects = [
     status: "Completed",
   },
   {
-    title: "E-COMMERCE DASHBOARD",
-    subtitle: "MERN Stack Admin Dashboard",
+    title: "Grevion – Parali App",
+    subtitle: "MERN Stack (Admin+SPOCs Dashboard)",
     features: [
-      "Built a fully responsive dashboard to monitor user behavior, sales data, and inventory.",
-      "Implemented secure login, role-based authentication, and protected admin routes.",
-      "Used React Charts to visually represent data in real-time.",
-      "Integrated MongoDB for persistent product and user data."
+      "Built a full-stack web application connecting SPOCs and power plants for biomass (parali) trading.",
+      "Promoted sustainable biomass reuse to curb air pollution in Delhi and nearby regions.",
+      "Streamlined secure listing and bidding with optimized UX.",
+      "Secured 3rd place at Meraki 2025, IIIT Una under the AgriTech theme."
     ],
     techStack: [
       { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -45,19 +47,19 @@ const projects = [
       { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
       { name: "Tailwind CSS", icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" },
     ],
-    image: "https://via.placeholder.com/600x300?text=E-Commerce+Dashboard",
+    image: grevionImg,
     liveLink: "#",
-    codeLink: "#",
-    status: "Dummy"
+    codeLink: "https://github.com/Snehaaa-Kri/Grevion",
+    status: "Completed"
   },
   {
-    title: "E-COMMERCE DASHBOARD",
-    subtitle: "MERN Stack Admin Dashboard",
+    title: "AirConnect– Flight Booking App",
+    subtitle: "MERN Stack (User+Admin Dashboard)",
     features: [
-      "Built a fully responsive dashboard to monitor user behavior, sales data, and inventory.",
-      "Implemented secure login, role-based authentication, and protected admin routes.",
-      "Used React Charts to visually represent data in real-time.",
-      "Integrated MongoDB for persistent product and user data."
+      "Developed a full-stack airline booking system with real-time flight search, booking, and user authentication.",
+      "Implemented secure login and role-based access control with protected admin routes.",
+      "Developed RESTful APIs using Node.js and Express.js.",
+      "Managed global state with React Context API and used MongoDB for data storage."
     ],
     techStack: [
       { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -67,16 +69,16 @@ const projects = [
       { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
       { name: "Tailwind CSS", icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" }
     ],
-    image: "https://via.placeholder.com/600x300?text=E-Commerce+Dashboard",
+    image: airconnectImg,
     liveLink: "#",
-    codeLink: "#",
-    status: "Dummy"
+    codeLink: "https://github.com/Snehaaa-Kri/AirlineBookingSystem",
+    status: "Completed"
   }
 ];
 
 function ProjectsComponent({ onBack }) {
   return (
-    <div className="min-h-screen bg-cover bg-center text-white py-5 overflow-y-scroll" style={{ backgroundImage: `url(${bg})` }}>
+    <div className="min-h-screen bg-cover bg-center text-white pt-5 overflow-y-scroll" style={{ backgroundImage: `url(${bg})` }}>
       <div className="flex justify-around items-center px-10">
         <h1 className="text-6xl text-center text-yellow-300 font-[pricedown]">MY PROJECTS</h1>
         <motion.button
