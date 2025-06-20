@@ -12,12 +12,15 @@ function BioComponent({ onBack }) {
       className="w-screen h-screen bg-cover bg-center text-white flex items-center justify-center"
       style={{ backgroundImage: `url(${bg})` }}
     >
+
+      {/* content container  */}
       <motion.div
         initial={{ scale: 0.9, opacity: 0, y: 50 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="backdrop-blur-md bg-black/60 p-10 rounded-3xl shadow-2xl w-[90%] md:w-[70%] max-w-5xl mt-4"
-      >
+        className="backdrop-blur-md bg-black/60 p-10 sm:bg-re rounded-3xl shadow-2xl w-[90%] md:w-[70%] max-w-5xl mt-4 "
+        >
+        {/* heading  */}
         <h1 className="text-6xl md:text-7xl text-center text-yellow-400 font-[pricedown] mb-6 tracking-wide">
           STILL RUNNING, NOT HUNTING
         </h1>

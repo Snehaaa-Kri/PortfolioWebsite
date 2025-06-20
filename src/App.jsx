@@ -162,6 +162,57 @@ function App() {
   }, []);
 
 
+
+  //animating title
+  const [text, setText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const fullText1 = "Hello, I'm";
+  const fullText2 = "Mern stack developer";
+
+  useEffect(() => {
+    let index = 0;
+    let currentText = fullText1;
+    let stage = "typing1";
+    let delay = 100;
+
+    const type = () => {
+      if (stage === "typing1") {
+        setText(currentText.slice(0, index + 1));
+        index++;
+        if (index === currentText.length) {
+          setTimeout(() => {
+            stage = "deleting1";
+            index = currentText.length;
+            type();
+          }, 800);
+          return;
+        }
+      } else if (stage === "deleting1") {
+        setText(currentText.slice(0, index - 1));
+        index--;
+        if (index === 0) {
+          stage = "typing2";
+          currentText = fullText2;
+          index = 0;
+        }
+      } else if (stage === "typing2") {
+        setText(currentText.slice(0, index + 1));
+        index++;
+        if (index === currentText.length) {
+          setTimeout(() => setShowCursor(false), 1000);
+          return;
+        }
+      }
+      setTimeout(type, delay);
+    };
+
+    const startTimeout = setTimeout(() => {
+      type();
+    }, 3000); //3 seconds delay
+
+    return () => clearTimeout(startTimeout);
+  }, []);
+
   return (
     <>
 
@@ -249,7 +300,20 @@ function App() {
 
               <div className="bg text text-white flex flex-col gap-3 absolute top-20 left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg] opacity-90">
                 {/* mern stack developer  */}
-                <h1 className="text-[8rem] leading-none left-0 translate-x-0 w-[90vw] text-center ">Mern stack developer</h1>
+                {/* <h1 className="text-[8rem] leading-none left-0 translate-x-0 w-[90vw] text-center ">Mern stack developer</h1> */}
+                <h1 className="text-[8rem] leading-none text-center w-[90vw]">
+      {text}
+      {showCursor && (
+        <span style={{ animation: "blink 1s step-end infinite" }}>|</span>
+      )}
+
+      <style>{`
+        @keyframes blink {
+          0%, 100% { opacity: 1 }
+          50% { opacity: 0 }
+        }
+      `}</style>
+    </h1>
                 <h1 className="text-[11rem] leading-none ml-20 translate-x-1/8 ">sneha</h1>
                 <h1 className="text-[11rem] leading-none -ml-40 translate-x-2/5 ">kumari</h1>
                 {/* <h1 className="text-[11rem] leading-none -ml-40">grand</h1>
