@@ -166,98 +166,61 @@ function AboutComponent({ onBack }) {
                         : 'grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4'}
                     gap-6 p-5 max-w-6xl mx-auto bg-bg-white/10 backdrop-blur-md  border border-white/20 shadow-md mt-2 rounded-xl
 `}>
-                    {isMobile && (activeTab === 'Education' || activeTab === 'Experience') ?
-                    // ✅ Mobile view with Swiper
-                        <>
-                            <Swiper
-                                modules={[Navigation]}
-                                navigation
-                                spaceBetween={40}
-                                className="px-4 mt-2"
+
+                    {activeTab === 'Education' ? (
+
+                        educationData.map((edu, index) => (
+                            <div
+                                key={index}
+                                className="backdrop-blur-lg bg-white/10 border-b-2 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
                             >
-                                {(activeTab === 'Education' ? educationData : experienceData).map((item, index) => (
-                                    <SwiperSlide key={index}>
-                                        <div className="max-w-screen mx-full backdrop-blur-lg bg-white/10 border-b-2 border-white shadow-lg rounded-xl p-6 text-white space-y-4 ">
-                                            <div className="text-5xl">{item.icon}</div>
-                                            <p className="text-white text-3xl font-light">{item.year || item.title}</p>
-                                            {item.course && <h3 className="text-xl font-mono">{item.course}</h3>}
-                                            {item.percentage && <p className="text-xl font-mono">Percentage – {item.percentage}</p>}
-                                            {item.gpa && <p className="text-xl font-mono">GPA – {item.gpa}</p>}
-                                            {item.institute && <p className="text-yellow-300 font-mono">{item.institute}</p>}
-                                            {item.duration && item.location && (
-                                                <p className="text-yellow-300 text-sm font-mono">{item.duration} – {item.location}</p>
-                                            )}
-                                            {item.points?.length > 0 && (
-                                                <ul className="list-disc pl-5 space-y-1 text-sm">
-                                                    {item.points.map((point, idx) => (
-                                                        <li key={idx} className="font-mono">{point}</li>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </>
-                        :
-                        <>
-                            {activeTab === 'Education' ? (
-
-                                educationData.map((edu, index) => (
-                                    <div
-                                        key={index}
-                                        className="backdrop-blur-lg bg-white/10 border-b-2 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
-                                    >
-                                        <div className="text-5xl">{edu.icon}</div>
-                                        <p className="text-white text-3xl font-light">{edu.year} ({edu.title})</p>
-                                        {edu.course && <h3 className="text-xl font-mono">{edu.course}</h3>}
-                                        {edu.percentage && <p className="text-xl font-mono">Percentage – {edu.percentage}</p>}
-                                        {edu.gpa && <p className="text-xl font-mono">GPA – {edu.gpa}</p>}
-                                        <p className="text-yellow-300 font-mono">{edu.institute}</p>
-                                        {edu.points?.length > 0 && (
-                                            <ul className="list-disc pl-5 space-y-1 text-sm">
-                                                {edu.points.map((point, idx) => (
-                                                    <li key={idx} className="font-mono">{point}</li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
-                                ))
-                            ) : activeTab === 'Experience' ? (
-                                experienceData.map((exp, index) => (
-                                    <div
-                                        key={index}
-                                        className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
-                                    >
-                                        <div className="text-5xl ">{exp.icon}</div>
-                                        <h3 className="text-white text-2xl">{exp.title}</h3>
-                                        <p className="text-yellow-300 text-sm font-mono">{exp.duration} – {exp.location}</p>
-                                        <ul className="list-disc pl-5 space-y-1 text-sm">
-                                            {exp.points.map((point, idx) => (
-                                                <li key={idx} className="font-mono">{point}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))
-                            ) : (
-                                filteredSkills.map((skill, index) => (
-                                    <div
-                                        key={index}
-                                        className="backdrop-blur-lg border-b-2 bg-white/10 bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
-                                    >
-                                        <img
-                                            src={skill.icon}
-                                            alt={skill.label}
-                                            className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
-                                            loading="lazy"
-                                        />
-                                        <p className="mt-2 text-md sm:text-xl font-mono font-semibold text-center">{skill.label}</p>
-                                    </div>
-                                ))
-                            )}
-                        </>
-
-                    }
+                                <div className="text-5xl">{edu.icon}</div>
+                                <p className="text-white text-3xl font-light">{edu.year} ({edu.title})</p>
+                                {edu.course && <h3 className="text-xl font-mono">{edu.course}</h3>}
+                                {edu.percentage && <p className="text-xl font-mono">Percentage – {edu.percentage}</p>}
+                                {edu.gpa && <p className="text-xl font-mono">GPA – {edu.gpa}</p>}
+                                <p className="text-yellow-300 font-mono">{edu.institute}</p>
+                                {edu.points?.length > 0 && (
+                                    <ul className="list-disc pl-5 space-y-1 text-sm">
+                                        {edu.points.map((point, idx) => (
+                                            <li key={idx} className="font-mono">{point}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        ))
+                    ) : activeTab === 'Experience' ? (
+                        experienceData.map((exp, index) => (
+                            <div
+                                key={index}
+                                className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
+                            >
+                                <div className="text-5xl ">{exp.icon}</div>
+                                <h3 className="text-white text-2xl">{exp.title}</h3>
+                                <p className="text-yellow-300 text-sm font-mono">{exp.duration} – {exp.location}</p>
+                                <ul className="list-disc pl-5 space-y-1 text-sm">
+                                    {exp.points.map((point, idx) => (
+                                        <li key={idx} className="font-mono">{point}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    ) : (
+                        filteredSkills.map((skill, index) => (
+                            <div
+                                key={index}
+                                className="backdrop-blur-lg border-b-2 bg-white/10 bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
+                            >
+                                <img
+                                    src={skill.icon}
+                                    alt={skill.label}
+                                    className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
+                                    loading="lazy"
+                                />
+                                <p className="mt-2 text-md sm:text-xl font-mono font-semibold text-center">{skill.label}</p>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
         </>
