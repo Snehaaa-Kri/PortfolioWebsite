@@ -12,39 +12,42 @@ import { FaAward } from "react-icons/fa6";
 import { FaUsersGear } from "react-icons/fa6";
 import CustomCursor from '../components/CustomCursor.jsx'
 
+// swipper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 
 const skills = [
-  // My Skills
-  { label: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'My Skills' },
-  { label: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', category: 'My Skills' },
-  { label: 'Tailwind CSS', icon: 'https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg', category: 'My Skills' },
-  { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', category: 'My Skills' },
-  { label: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', category: 'My Skills' },
-  { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', category: 'My Skills' },
-  { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', category: 'My Skills' },
-  { label: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', category: 'My Skills' },
-  { label: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', category: 'My Skills' },
+    // My Skills
+    { label: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'My Skills' },
+    { label: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', category: 'My Skills' },
+    { label: 'Tailwind CSS', icon: 'https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg', category: 'My Skills' },
+    { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', category: 'My Skills' },
+    { label: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', category: 'My Skills' },
+    { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', category: 'My Skills' },
+    { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', category: 'My Skills' },
+    { label: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', category: 'My Skills' },
+    { label: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', category: 'My Skills' },
 
-  // Education
-  { label: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'Education' },
+    // Education
+    { label: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'Education' },
 
-  // Experience
-  { label: 'Nothing to display right now!', icon: 'https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f910.png', category: 'Experience' },
+    // Experience
+    { label: 'Nothing to display right now!', icon: 'https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f910.png', category: 'Experience' },
 
-  // Additional Skills
-  { label: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg', category: 'Additional Skills' },
-  { label: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg', category: 'Additional Skills' },
-  { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg', category: 'Additional Skills' },
-  { label: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', category: 'Additional Skills' },
-  { label: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg', category: 'Additional Skills' },
+    // Additional Skills
+    { label: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg', category: 'Additional Skills' },
+    { label: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg', category: 'Additional Skills' },
+    { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg', category: 'Additional Skills' },
+    { label: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', category: 'Additional Skills' },
+    { label: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg', category: 'Additional Skills' },
 
-  // Tools
-  { label: 'Vercel', icon: 'https://cdn.simpleicons.org/vercel/000000', category: 'Tools' },
-  { label: 'Netlify', icon: 'https://cdn.simpleicons.org/netlify/00C7B7', category: 'Tools' },
-  { label: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', category: 'Tools' },
+    // Tools
+    { label: 'Vercel', icon: 'https://cdn.simpleicons.org/vercel/000000', category: 'Tools' },
+    { label: 'Netlify', icon: 'https://cdn.simpleicons.org/netlify/00C7B7', category: 'Tools' },
+    { label: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', category: 'Tools' },
 ];
-
-
 
 const educationData = [
     {
@@ -108,10 +111,6 @@ const experienceData = [
     }
 ];
 
-
-
-
-
 function AboutComponent({ onBack }) {
     const [activeTab, setActiveTab] = useState('My Skills');
     useEffect(() => {
@@ -126,9 +125,21 @@ function AboutComponent({ onBack }) {
 
     const filteredSkills = skills.filter(skill => skill.category === activeTab);
 
+
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 780); // Tailwind's sm breakpoint = 640px
+        };
+
+        handleResize(); // initial check
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <>
-            <div className="h-screen bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-5 relative">
+            <div className="min-h-screen lg:h-screen bg-[url('https://wallpaperaccess.com/full/1614514.jpg')] bg-cover bg-center text-white py-5 relative px-1 sm:px-5 md:px-10">
                 {/* <CustomCursor /> */}
 
 
@@ -139,112 +150,117 @@ function AboutComponent({ onBack }) {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={onBack}
-                        className="bg-yellow-500 hover:bg-yellow-400  text-black absolute mt-6 top-[1rem] left-[3rem]  py-2 px-4 rounded-lg  cursor-pointer  text-md font-semibold  transition-all font-[Helvetica_Now_Display] backdrop-blur-sm border border-red-300 shadow-2xl"
+                        className=" bg-yellow-500 hover:bg-yellow-400  text-black absolute mt-6 top-[0.3rem] sm:top-[1rem] left-[0.5rem] sm:left-[3rem] py-1 px-2 sm:py-2 sm:px-4 rounded-lg  cursor-pointer text-sm sm:text-md font-semibold  transition-all font-[Helvetica_Now_Display] backdrop-blur-sm border border-red-300 shadow-2xl"
                     >
                         <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-yellow-500"></i> Go Back
                     </motion.button>
 
                 </div>
 
-
                 <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-5 max-w-6xl mx-auto backdrop-blur-md bg-white/10 border border-white/20 shadow-md mt-2 rounded-xl">
-
-                    {activeTab === 'Education' ? (
-                        educationData.map((edu, index) => (
-                            <div
-                                key={index}
-                                className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
+                {/* //content box  */}
+                <div className={`grid 
+                    ${activeTab === 'Education' || activeTab === 'Experience'
+                        ? 'grid-cols-1 sm:grid-cols-3'
+                        : 'grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4'}
+                    gap-6 p-5 max-w-6xl mx-auto bg-bg-white/10 backdrop-blur-md  border border-white/20 shadow-md mt-2 rounded-xl
+`}>
+                    {isMobile && (activeTab === 'Education' || activeTab === 'Experience') ?
+                    // ✅ Mobile view with Swiper
+                        <>
+                            <Swiper
+                                modules={[Navigation]}
+                                navigation
+                                spaceBetween={40}
+                                className="px-4 mt-2"
                             >
-                                <div className="text-5xl">{edu.icon}</div>
-                                <p className="text-white text-3xl font-light">{edu.year} ({edu.title})</p>
-                                {edu.course && <h3 className="text-xl font-mono">{edu.course}</h3>}
-                                {edu.percentage && <p className="text-xl font-mono">Percentage – {edu.percentage}</p>}
-                                {edu.gpa && <p className="text-xl font-mono">GPA – {edu.gpa}</p>}
-                                <p className="text-yellow-300 font-mono">{edu.institute}</p>
-                                {edu.points?.length > 0 && (
-                                    <ul className="list-disc pl-5 space-y-1 text-sm">
-                                        {edu.points.map((point, idx) => (
-                                            <li key={idx} className="font-mono">{point}</li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </div>
-                        ))
-                    ) : activeTab === 'Experience' ? (
-                        experienceData.map((exp, index) => (
-                            <div
-                                key={index}
-                                className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
-                            >
-                                <div className="text-5xl ">{exp.icon}</div>
-                                <h3 className="text-white text-2xl">{exp.title}</h3>
-                                <p className="text-yellow-300 text-sm font-mono">{exp.duration} – {exp.location}</p>
-                                <ul className="list-disc pl-5 space-y-1 text-sm">
-                                    {exp.points.map((point, idx) => (
-                                        <li key={idx} className="font-mono">{point}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))
-                    ) : (
-                        filteredSkills.map((skill, index) => (
-                            <div
-  key={index}
-  className="backdrop-blur-lg border-b-2 bg-white/10 bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
->
-  <img
-    src={skill.icon}
-    alt={skill.label}
-    className="w-12 h-12 object-contain"
-    loading="lazy"
-  />
-  <p className="mt-2 text-xl font-mono font-semibold text-center">{skill.label}</p>
-</div>
+                                {(activeTab === 'Education' ? educationData : experienceData).map((item, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div className="max-w-screen mx-full backdrop-blur-lg bg-white/10 border-b-2 border-white shadow-lg rounded-xl p-6 text-white space-y-4 ">
+                                            <div className="text-5xl">{item.icon}</div>
+                                            <p className="text-white text-3xl font-light">{item.year || item.title}</p>
+                                            {item.course && <h3 className="text-xl font-mono">{item.course}</h3>}
+                                            {item.percentage && <p className="text-xl font-mono">Percentage – {item.percentage}</p>}
+                                            {item.gpa && <p className="text-xl font-mono">GPA – {item.gpa}</p>}
+                                            {item.institute && <p className="text-yellow-300 font-mono">{item.institute}</p>}
+                                            {item.duration && item.location && (
+                                                <p className="text-yellow-300 text-sm font-mono">{item.duration} – {item.location}</p>
+                                            )}
+                                            {item.points?.length > 0 && (
+                                                <ul className="list-disc pl-5 space-y-1 text-sm">
+                                                    {item.points.map((point, idx) => (
+                                                        <li key={idx} className="font-mono">{point}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </>
+                        :
+                        <>
+                            {activeTab === 'Education' ? (
 
-                        ))
-                    )}
+                                educationData.map((edu, index) => (
+                                    <div
+                                        key={index}
+                                        className="backdrop-blur-lg bg-white/10 border-b-2 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
+                                    >
+                                        <div className="text-5xl">{edu.icon}</div>
+                                        <p className="text-white text-3xl font-light">{edu.year} ({edu.title})</p>
+                                        {edu.course && <h3 className="text-xl font-mono">{edu.course}</h3>}
+                                        {edu.percentage && <p className="text-xl font-mono">Percentage – {edu.percentage}</p>}
+                                        {edu.gpa && <p className="text-xl font-mono">GPA – {edu.gpa}</p>}
+                                        <p className="text-yellow-300 font-mono">{edu.institute}</p>
+                                        {edu.points?.length > 0 && (
+                                            <ul className="list-disc pl-5 space-y-1 text-sm">
+                                                {edu.points.map((point, idx) => (
+                                                    <li key={idx} className="font-mono">{point}</li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+                                ))
+                            ) : activeTab === 'Experience' ? (
+                                experienceData.map((exp, index) => (
+                                    <div
+                                        key={index}
+                                        className="col-span-2 md:col-span-1 backdrop-blur-lg border-b-2 bg-white/10 border-white shadow-lg rounded-xl p-6 text-white space-y-4"
+                                    >
+                                        <div className="text-5xl ">{exp.icon}</div>
+                                        <h3 className="text-white text-2xl">{exp.title}</h3>
+                                        <p className="text-yellow-300 text-sm font-mono">{exp.duration} – {exp.location}</p>
+                                        <ul className="list-disc pl-5 space-y-1 text-sm">
+                                            {exp.points.map((point, idx) => (
+                                                <li key={idx} className="font-mono">{point}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))
+                            ) : (
+                                filteredSkills.map((skill, index) => (
+                                    <div
+                                        key={index}
+                                        className="backdrop-blur-lg border-b-2 bg-white/10 bg-opacity-90 p-4 rounded-lg flex flex-col items-center justify-center shadow-lg hover:scale-105 transition-transform"
+                                    >
+                                        <img
+                                            src={skill.icon}
+                                            alt={skill.label}
+                                            className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
+                                            loading="lazy"
+                                        />
+                                        <p className="mt-2 text-md sm:text-xl font-mono font-semibold text-center">{skill.label}</p>
+                                    </div>
+                                ))
+                            )}
+                        </>
 
+                    }
                 </div>
-
-
-
             </div>
-            {/* <h1 className='text-8xl bg-black text-white text-center pl-[30%] py-10'>my bio</h1>
-            <div className="w-full h-screen flex items-center justify-center bg-black">
-                <div className="cntnr flex text-white w-full h-[80%] ">
-                    <div className="limg relative w-1/2 h-full ">
-                        <img
-                            className="absolute h-[110vh] scale-[1.3] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                            src={img}
-                            alt=""
-                        />
-                    </div>
-                    <div className="rg w-[40%] ">
-                        <h1 className="text-6xl">Still Running,</h1>
-                        <h1 className="text-6xl">Not Hunting</h1>
-                        <p className="mt-10 text-xl font-[Helvetica_Now_Display]">
-                            Just like a side quest in an open-world game, my journey into tech has been full of detours, discoveries, and deadlines. I'm Sneha Kumari — a curious coder, creative thinker, and someone who'd rather debug all night than give up on a solution.
-
-                            From hackathons to real-world deployments, I’ve always loved building things that make people’s lives easier — whether it’s a pet adoption platform or a navigation solution for railway stations. I specialize in full-stack development, with a strong grip on React, Node.js, MongoDB, and whatever tool helps me bring an idea to life.
-
-                            💻 I code with purpose.
-                            🎮 I design with story.
-                            🚀 I ship with impact.
-
-                            Let’s just say — I’m not hunting for the next big thing.
-                            I’m already building it.
-                        </p>
-                        <button className="bg-yellow-500 px-10 py-10 text-black mt-10 text-4xl">
-                            Download Now
-                        </button>
-                    </div>
-                </div>
-            </div> */}
-
         </>
     )
 }
-
 export default AboutComponent
