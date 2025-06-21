@@ -19,7 +19,7 @@ import gtaAudio from '../public/gtaTheme.mp3'
 
 function App() {
 
-  
+
 
 
   // hero section animations
@@ -301,21 +301,21 @@ function App() {
               <div className="bg text text-white flex flex-col gap-3 absolute top-20 left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg] opacity-90">
                 {/* mern stack developer  */}
                 {/* <h1 className="text-[8rem] leading-none left-0 translate-x-0 w-[90vw] text-center ">Mern stack developer</h1> */}
-                <h1 className="text-[8rem] leading-none text-center w-[90vw]">
-      {text}
-      {showCursor && (
-        <span style={{ animation: "blink 1s step-end infinite" }}>|</span>
-      )}
+                <h1 className="text-[5rem] sm:text-[6rem] md:text-[8rem]  leading-none text-center w-[90vw]">
+                  {text}
+                  {showCursor && (
+                    <span style={{ animation: "blink 1s step-end infinite" }}>|</span>
+                  )}
 
-      <style>{`
-        @keyframes blink {
-          0%, 100% { opacity: 1 }
-          50% { opacity: 0 }
-        }
-      `}</style>
-    </h1>
-                <h1 className="text-[11rem] leading-none ml-20 translate-x-1/8 ">sneha</h1>
-                <h1 className="text-[11rem] leading-none -ml-40 translate-x-2/5 ">kumari</h1>
+                  <style>{`
+                    @keyframes blink {
+                    0%, 100% { opacity: 1 }
+                    50% { opacity: 0 }
+                  }
+                `}</style>
+                </h1>
+                <h1 className="text-[4rem] sm:text-[6rem] md:text-[11rem] leading-none ml-20 translate-x-1/8 ">sneha</h1>
+                <h1 className="text-[4rem] sm:text-[6rem] md:text-[11rem] leading-none -ml-40 translate-x-2/5 ">kumari</h1>
                 {/* <h1 className="text-[11rem] leading-none -ml-40">grand</h1>
                 <h1 className="text-[11rem] leading-none ml-20">theft</h1>
                 <h1 className="text-[11rem] leading-none -ml-40">auto</h1> */}
@@ -332,7 +332,7 @@ function App() {
               {/* <img className='h-[65px] absolute top-1/2 left-1/7 -translate-x-1/2 -translate-y-1/32' src="/ps5.png" alt="" /> */}
 
               {/* bottom navigations */}
-                  <BottomNavigations />
+              <BottomNavigations />
             </div>
           </div>
         </div>

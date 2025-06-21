@@ -1,9 +1,12 @@
-import React, {useState} from 'react'
-
+import React, { useState } from 'react';
 import BioComponent from './BioComponent.jsx';
 import AboutComponent from './AboutComponent.jsx';
 import ProjectsComponent from './ProjectsComponent.jsx';
 import ContactComponent from './ContactComponent.jsx';
+
+import { Button, Slide, Paper, Stack, useMediaQuery } from '@mui/material';
+import { ArrowDownward } from '@mui/icons-material';
+import { useTheme } from '@mui/material/styles';
 
 const navItems = [
   { label: "My Bio", key: "bio" },
@@ -12,45 +15,80 @@ const navItems = [
   { label: "Contact Me", key: "contact" },
 ];
 
-
-
 function BottomNavigations() {
-
-    const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const renderComponent = () => {
+    const sectionProps = { onBack: () => setActiveSection(null) };
+
     switch (activeSection) {
-      case 'bio': return <BioComponent onBack={() => setActiveSection(null)} />;
-      case 'about': return <AboutComponent onBack={() => setActiveSection(null)} />;
-      case 'projects': return <ProjectsComponent onBack={() => setActiveSection(null)} />;
-      case 'contact': return <ContactComponent onBack={() => setActiveSection(null)} />;
-      default: return null;
+      case 'bio':
+        return <BioComponent {...sectionProps} />;
+      case 'about':
+        return <AboutComponent {...sectionProps} />;
+      case 'projects':
+        return <ProjectsComponent {...sectionProps} />;
+      case 'contact':
+        return <ContactComponent {...sectionProps} />;
+      default:
+        return null;
     }
   };
 
- return (
+  return (
     <>
       {!activeSection && (
-        <div className="flex justify-center items-center gap-5 pb-8">
+        <Stack
+          direction={isMobile ? 'column' : 'row'}
+          spacing={3}
+          justifyContent="center"
+          alignItems="center"
+          pb={4}
+        >
           {navItems.map((item) => (
-            <div
-              key={item.key}
-              onClick={() => setActiveSection(item.key)}
-              className="flex justify-center items-center text-4xl -translate-y-[-33px] hover:scale-105 duration-100 cursor-pointer"
-            >
-              <i className="ri-arrow-down-line bg-white/20 py-2 px-3 font-bold rounded-l-full backdrop-blur-sm hover:bg-white/10"></i>
-              <h3 className='font-[Helvetica_Now_Display] font-semibold text-4xl bg-white/20 pl-4 py-2 px-3 rounded-r-full backdrop-blur-sm hover:bg-white/10'>
-                {item.label}
-              </h3>
-            </div>
+            <Slide direction="up" in={true} timeout={500} key={item.key}>
+              <Paper
+                elevation={6}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  backgroundColor: 'rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(6px)',
+                  borderRadius: '50px',
+                  px: 2,
+                  py: 1,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255,255,255,0.25)',
+                    transform: 'scale(1.05)',
+                    transition: 'transform 0.2s ease-in-out',
+                  },
+                }}
+                onClick={() => setActiveSection(item.key)}
+              >
+                <ArrowDownward sx={{ color: 'white', mr: 1 }} />
+                <Button
+                  sx={{
+                    color: 'white',
+                    fontFamily: 'Helvetica Now Display, sans-serif',
+                    fontWeight: 600,
+                    fontSize: isMobile ? '1rem' : '1.25rem',
+                    textTransform: 'none',
+                  }}
+                >
+                  {item.label}
+                </Button>
+              </Paper>
+            </Slide>
           ))}
-        </div>
+        </Stack>
       )}
 
-      <div className="mt-10 z-[100]">{renderComponent()}</div>
+      <div style={{ marginTop: '30px', zIndex: 100 }}>{renderComponent()}</div>
     </>
   );
 }
 
-
-export default BottomNavigations
+export default BottomNavigations;
