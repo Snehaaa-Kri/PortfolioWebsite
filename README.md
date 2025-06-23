@@ -58,7 +58,29 @@ npm run dev
 - **Deployment**: Vercel
 
 ---
-## 📁 Folder Structure ``` . ├── .git ├── node_modules ├── public ├── src │ ├── assets │ ├── components │ ├── constants │ ├── App.css │ ├── App.jsx │ ├── index.css │ └── main.jsx ├── .env ├── .gitignore ├── eslint.config.js ├── index.html ├── package-lock.json ├── package.json ├── README.md └── vite.config.js ``` 
+## 📁 Folder Structure
+ ``` 
+ .
+├── .git
+├── node_modules
+├── public
+├── src
+│ ├── assets
+│ ├── components
+│ ├── constants
+│ ├── App.css
+│ ├── App.jsx
+│ ├── index.css
+│ └── main.jsx
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
+ ```
 ---
 
 ## 📬 Contact
