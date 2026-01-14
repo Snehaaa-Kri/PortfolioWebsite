@@ -53,7 +53,7 @@ function ContactComponent({ onBack }) {
           onClick={onBack}
           className="absolute -top-5 sm:-top-5 left-1/2 -translate-x-1/2 text-black py-2 px-4 rounded-lg bg-yellow-500 hover:bg-yellow-400 cursor-pointer text-sm sm:text-md font-semibold shadow-md transition-all font-[Helvetica_Now_Display]"
         >
-          <i className="ri-arrow-up-line absolute translate-x-1/3 text-2xl sm:text-3xl -translate-y-8 sm:-translate-y-8 text-yellow-500 "></i> Go Back
+          <i className="ri-arrow-up-line absolute translate-x-1/3 text-2xl sm:text-3xl -translate-y-8 sm:-translate-y-8 text-yellow-500 font-mono font-semibold"></i> Go Back
         </motion.button>
 
         <form ref={formRef} onSubmit={sendEmail} className="space-y-5 sm:space-y-6">

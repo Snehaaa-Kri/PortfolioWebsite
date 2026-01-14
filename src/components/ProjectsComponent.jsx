@@ -4,6 +4,12 @@ import bg from '../../public/bg1.png';
 import portfolioImg from '../../public/portfolio.jpg'
 import grevionImg from '../../public/grevion.jpg'
 import airconnectImg from '../../public/airconnect.jpg'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import ProjectCard from './ProjectCard';
+
 
 const projects = [
   {
@@ -17,9 +23,9 @@ const projects = [
     ],
     techStack: [
       { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      // { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
       { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "Tailwind CSS", icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" },
+      { name: "TailwindCSS", icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" },
       { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
       { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       { name: "npm", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
@@ -78,65 +84,54 @@ const projects = [
 
 function ProjectsComponent({ onBack }) {
   return (
-    <div className="min-h-screen bg-cover bg-center text-white pt-5 overflow-y-scroll" style={{ backgroundImage: `url(${bg})` }}>
-      <div className="flex justify-around items-center px-10">
-        <h1 className="text-6xl text-center text-yellow-300 font-[pricedown]">MY PROJECTS</h1>
+    <div
+      className="min-h-screen bg-cover bg-center text-white py-1 px-3 sm:px-10 overflow-y-auto"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center gap-4 relative ">
+        <h1 className="text-3xl sm:text-6xl text-center text-yellow-300 font-[pricedown] tracking-wide">
+          MY PROJECTS
+        </h1>
+
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onBack}
-          className="bg-yellow-500 hover:bg-yellow-400  text-black absolute top-[1rem] left-[3rem] mt-12 py-2 px-4 rounded-lg cursor-pointer text-md font-semibold transition-all font-[Helvetica_Now_Display] backdrop-blur-sm  shadow-2xl"
+          className="fixed sm:absolute top-3 left-3 sm:top-4 sm:left-10
+          bg-yellow-500 hover:bg-yellow-400 text-black 
+          py-1.5 px-3 sm:py-2 sm:px-4 rounded-lg 
+          text-xs sm:text-md font-semibold shadow-xl z-50 font-mono"
         >
-          <i className="ri-arrow-up-line absolute translate-x-1/3 text-3xl -translate-y-[2rem] text-yellow-500"></i> Go Back
+          Go Back
         </motion.button>
       </div>
 
-      <div className="p-5 max-w-7xl mx-auto mt-2 bg-black/20  rounded-2xl shadow-xl text-white  flex gap-2 backdrop-blur-lg">
+      {/* ---------- MOBILE / TABLET : SWIPER ---------- */}
+      <div className="block lg:hidden mt-6">
+        <Swiper
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          spaceBetween={15}
+          slidesPerView={1.1}
+        >
+          {projects.map((project, index) => (
+            <SwiperSlide key={index}>
+              <ProjectCard project={project} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* ---------- DESKTOP : GRID 3 ---------- */}
+      <div className="hidden lg:grid grid-cols-3 gap-6 mt-6 max-w-7xl mx-auto backdrop-blur-lg bg-black/20 p-5 rounded-2xl">
         {projects.map((project, index) => (
-          <div key={index} className='py-2 px-4 rounded-2xl shadow-2xl bg-black/10 backdrop-blur-lg'>
-            <img src={project.image} alt={project.title} className="rounded-lg w-full h-36 object-cover border mb-2" />
-
-            <h2 className="text-yellow-300 text-2xl font-normal tracking-wide">{project.title}</h2>
-            <h3 className="text-yellow-200 text-xl mb-4 font-[Helvetica_Now_Display]">{project.subtitle}</h3>
-
-            <div className="mb-4">
-              <h4 className="text-white text-xl font-normal tracking-widest underline mb-2">Key Features</h4>
-              <ul className="list-disc list-inside space-y-1 text-sm font-[Helvetica_Now_Display]">
-                {project.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-yellow-200 font-normal tracking-widest text-md underline mb-2 text-xl">Tech Stack</h4>
-              <div className="flex flex-wrap gap-2">
-                {project.techStack.map((tech, idx) => (
-                  <div key={idx} className="flex flex-col items-center text-xs">
-                    <img src={tech.icon} alt={tech.name} className="h-6 w-6 object-contain" />
-                    <span className="mt-1 font-[Helvetica_Now_Display]">{tech.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                <button className="bg-yellow-400 text-black px-6 py-2 rounded-md font-normal tracking-wider hover:bg-yellow-300 transition-all ">
-                  Live Link →
-                </button>
-              </a>
-              <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
-                <button className="bg-transparent border border-yellow-400 text-yellow-300 px-6 py-2 rounded-md hover:bg-yellow-400 hover:text-black transition-all font-normal tracking-wider">
-                  Source Code →
-                </button>
-              </a>
-            </div>
-          </div>
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
     </div>
-  );
+  )
 }
+
 
 export default ProjectsComponent;
