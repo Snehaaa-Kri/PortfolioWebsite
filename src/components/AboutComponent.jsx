@@ -42,7 +42,7 @@ const educationData = [
 
 const experienceData = [
   {
-    title: "Frontend Developer – DevTeams",
+    title: "Backend Developer – DevTeams",
     duration: "Jan 2024 – Present",
     location: "Remote",
     icon: <FaLaptopCode size={36} />,
