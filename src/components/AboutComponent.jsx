@@ -67,22 +67,42 @@ const educationData = [
 ]
 
 const experienceData = [
-    {
-        title: "Backend Developer – DevTeams",
-        duration: "Jan 2024 – Present",
-        location: "Remote",
-        icon: <FaLaptopCode size={36} />,
-        points: ["Worked on React UI for college website."]
-    },
-    {
-        title: "Hackathon Finalist – Progothon Meraki 2025",
-        duration: "Apr 2025",
-        location: "IIIT Una",
-        icon: <FaAward size={36} />,
-        points: ["Built Grevion – AgriTech MERN platform."]
-    }
-]
-
+  {
+    title: "Web Development Intern – Infinito Comics",
+    duration: "July 2025 – Sep 2025",
+    location: "Remote",
+    icon: <FaLaptopCode size={36} />,
+    points: [
+      "Integrated Razorpay payment gateway for secure online transactions & donations.",
+      "Converted 10+ Figma designs into responsive React + Tailwind components.",
+      "Ensured cross-browser compatibility, reducing UI bugs by 40%.",
+      "Collaborated with 10-member team using Git & GitHub for version control.",
+      "Tech Stack: React.js, Tailwind CSS, Node.js, Express.js, MongoDB."
+    ]
+  },
+  {
+    title: "Backend Developer – DevTeams, IIIT Una",
+    duration: "Jan 2025 – Present",
+    location: "Remote",
+    icon: <FaLaptopCode size={36} />,
+    points: [
+      "Designed Admin-side Notice Section UI.",
+      "Built backend modules for Past Graduates & Institute Reports (500+ records).",
+      "Maintained official ICIC3S website serving 300+ monthly users.",
+      "Tested APIs using Postman & collaborated via GitHub in 8-member team."
+    ]
+  },
+  {
+    title: "Hackathon Finalist – Progothon Meraki 2025",
+    duration: "Apr 2025",
+    location: "IIIT Una",
+    icon: <FaAward size={36} />,
+    points: [
+      "Built Grevion – AgriTech MERN platform and secured 3rd position."
+    ]
+  }
+];
+ 
 function AboutComponent({ onBack }) {
     const [activeTab, setActiveTab] = useState('My Skills')
 
